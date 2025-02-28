@@ -314,22 +314,24 @@ function CartPage() {
 function CheckoutSuccessPage() {
   const { clearCart } = useCart();
   const navigate = useNavigate();
+
   useEffect(() => {
     clearCart();
-  }, [clearCart]);
+  }, []); // ✅ Empty dependency array ensures it runs only once
 
   return (
     <Layout>
       <div className={styles.checkoutSuccessContainer}>
         <h1>Order Successful!</h1>
         <p>Thank you for your purchase.</p>
-        <button onClick={() => navigate("/homepage")} className={styles.backLink}>
+        <button onClick={() => navigate("/")} className={styles.backLink}>
           Back to store
         </button>
       </div>
     </Layout>
   );
 }
+
 
 // ContactPage Component
 function ContactPage() {
