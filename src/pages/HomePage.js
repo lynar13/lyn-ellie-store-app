@@ -35,27 +35,30 @@ function HomePage() {
   return (
     <Layout>
       <div className={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={search}
-          onChange={handleSearchChange}
-          className={styles.search}
-        />
-        {showSuggestions && (
-          <ul className={styles.suggestionsList}>
-            {suggestions.map((product) => (
-              <li
-                key={product.id}
-                onClick={() => handleSelectSuggestion(product.title)}
-                className={styles.suggestionItem}
-              >
-                {product.title}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+    <div className={styles.searchBox}>
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={search}
+        onChange={handleSearchChange}
+        className={styles.searchInput}
+      />
+      <button className={styles.searchButton}>🔍</button>
+    </div>
+    {showSuggestions && (
+      <ul className={styles.suggestionsList}>
+        {suggestions.map((product) => (
+          <li
+            key={product.id}
+            onClick={() => handleSelectSuggestion(product.title)}
+            className={styles.suggestionItem}
+          >
+            {product.title}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
       <div className={styles.productGrid}>
         {products
           .filter((p) => p.title.toLowerCase().includes(search.toLowerCase()))

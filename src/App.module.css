@@ -15,50 +15,101 @@
   margin: auto;
 }
 
-/* Header Styles */
+/* Header */
 .header {
+  display: flex;
   position: sticky;
   top: 0;
   left: 0;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  background: #da2955;
+  color: white;
   z-index: 1000;
   width: 100%;
-  
 }
 
+/* Logo */
 .logoContainer {
-  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
 }
 
 .logo {
-  width: 120px;
-  height: auto;
   border-radius: 50%;
+  height: 50px;
 }
 
 /* Navigation */
 .nav {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  padding-right: 40px;
+  gap: 10px;
+  padding: 10px 40px;
+}
+
+/* Burger Menu Button */
+.burgerMenu {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 150px;
 }
 
 .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   text-decoration: none;
-  font-size: 18px;
   transition: color 0.3s ease;
 }
 
-.link:hover {
-  color: #fdd835;
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .burgerMenu {
+    display: block;
+  }
+
+  .nav {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background: #fffbfe;
+    display: none;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 15px 0;
+    font-size: 18px;
+    color: rgb(7, 7, 7);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .nav a:hover {
+    background: #444;
+  }
 }
+
 
 /* Cart */
 .cartLink {
@@ -86,48 +137,7 @@
   border-radius: 50%;
 }
 
-.button {
-  background-color: #ff91a2;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-  width: 100px;
-}
-.buttonContainer {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    margin-top: 10px; /* Adds spacing */
-  }  
 
-/* Responsive Navigation */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: row;
-    text-align: center;
-  }
-
-  .nav {
-    flex-direction: row;
-    gap: 10px;
-    padding-top: 10px;
-  }
-
-  .cartLink {
-    margin-top: 10px;
-  }
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #343a40;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
 
 /* Product Grid */
 .productGrid {
@@ -274,7 +284,7 @@
   margin-top: 10px;
 }
 
-/* Responsive Design */
+/* Product Page Responsive Design */
 @media (max-width: 768px) {
   .productDetailContainer {
     flex-direction: column;
@@ -407,16 +417,65 @@
 }
 
 /* Search Bar */
-.search {
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers everything */
   width: 100%;
-  max-width: 400px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-/* Form Styles */
+.searchBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 25px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+}
+
+.searchButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.suggestionsList {
+  list-style: none;
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.suggestionItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestionItem:hover {
+  background: #f0f0f0;
+}
+
+
+/* Form Styles / Contact Page */
 .form {
   display: flex;
   flex-direction: column;
@@ -436,6 +495,24 @@
   height: 100px;
 }
 
+.button {
+  background-color: #ff91a2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  width: 100px;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    margin-top: 10px; /* Adds spacing */
+  }  
+
+
 /* Responsive Forms */
 @media (max-width: 480px) {
   .form {
@@ -445,4 +522,12 @@
   .search {
     width: 90%;
   }
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
