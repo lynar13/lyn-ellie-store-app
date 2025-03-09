@@ -71,12 +71,12 @@
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-
   .header {
     flex-direction: row;
     align-items: center;
     padding: 15px 0;
   }
+
   .burgerMenu {
     display: block;
   }
@@ -110,7 +110,6 @@
   }
 }
 
-
 /* Cart */
 .cartLink {
   position: relative;
@@ -136,8 +135,6 @@
   padding: 3px 7px;
   border-radius: 50%;
 }
-
-
 
 /* Product Grid */
 .productGrid {
@@ -166,6 +163,7 @@
   border-radius: 8px;
 }
 
+/* Price Styling */
 .originalPrice {
   font-size: 14px;
   color: grey;
@@ -205,52 +203,11 @@
   align-items: center;
 }
 
-.productImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
 .productInfoContainer {
   flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.priceContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  margin-top: 10px;
-  align-items: center;
-  justify-content: center;
-}
-
-.priceContainerProduct {
-  font-size: 14px;
-  color: grey;
-}
-
-.originalPrice {
-  font-size: 14px;
-  color: grey;
-  text-decoration: line-through;
-}
-
-.originalPriceProduct {
-  font-size: 18px;
-  color: rgb(79, 72, 72);
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.discountedPrice {
-  font-size: 18px;
-  color: red;
-  font-weight: bold;
 }
 
 .addToCartButton {
@@ -268,7 +225,7 @@
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.addToCartButton:hover {
   background-color: #ff6381;
 }
 
@@ -300,7 +257,6 @@
     width: 100%;
   }
 }
-
 
 /* Responsive Grid */
 @media (max-width: 768px) {
@@ -349,7 +305,6 @@
   background-color: darkred;
 }
 
-
 /* Checkout Button */
 .checkoutButton {
   display: block;
@@ -369,59 +324,11 @@
   background-color: #218838;
 }
 
-/* Checkout Success Page */
-.checkoutSuccessContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-.checkoutSuccess {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.checkoutSuccess h1 {
-  color: #28a745;
-  font-size: 28px;
-}
-
-.backLink {
-  color: #ffffff;
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  background-color: #e52e71;
-  border-radius: 5px;
-  border: none;
-  padding: 12px;
-  width: 150px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.backLink:hover {
-  background-color: #e52e71;
-}
-
-.cartButtons {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  align-items: center;
-}
-
 /* Search Bar */
-
 .searchContainer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers everything */
+  align-items: center;
   width: 100%;
   margin-top: 20px;
 }
@@ -435,93 +342,6 @@
   border-radius: 25px;
   padding: 5px 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.searchInput {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 25px;
-}
-
-.searchButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 10px;
-}
-
-.suggestionsList {
-  list-style: none;
-  background: white;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 5px;
-  margin-top: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.suggestionItem {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggestionItem:hover {
-  background: #f0f0f0;
-}
-
-
-/* Form Styles / Contact Page */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: auto;
-}
-
-.input, .textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.textarea {
-  height: 100px;
-}
-
-.button {
-  background-color: #ff91a2;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-  width: 100px;
-}
-.buttonContainer {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    margin-top: 10px; /* Adds spacing */
-  }  
-
-
-/* Responsive Forms */
-@media (max-width: 480px) {
-  .form {
-    width: 90%;
-  }
-
-  .search {
-    width: 90%;
-  }
 }
 
 /* Footer Styles */
