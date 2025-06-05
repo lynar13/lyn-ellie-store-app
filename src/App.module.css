@@ -303,6 +303,23 @@
   margin-top: 10px;
 }
 
+.backButton {
+  background-color: transparent;
+  color: #ff6f91;
+  font-size: 1rem;
+  border: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font-weight: bold;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
+
+
 /* Product Page Responsive Design */
 @media (max-width: 768px) {
   .productDetailContainer {

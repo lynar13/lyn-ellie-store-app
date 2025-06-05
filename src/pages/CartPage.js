@@ -15,10 +15,7 @@ function CartPage() {
   const navigate = useNavigate();
 
   /** Total price of all products in the cart */
-  const total = cart.reduce(
-    (sum, product) => sum + product.discountedPrice,
-    0
-  );
+  const total = cart.reduce((sum, product) => sum + product.discountedPrice, 0);
 
   return (
     <Layout>

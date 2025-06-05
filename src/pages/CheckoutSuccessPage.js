@@ -4,7 +4,7 @@ import { useCart } from "../components/CartContext";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import styles from "../App.module.css";
 
 /**
