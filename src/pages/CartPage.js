@@ -14,10 +14,7 @@ function CartPage() {
   const { cart } = useCart();
   const navigate = useNavigate();
 
-  /**
-   * Calculates the total price of items in the cart.
-   * @type {number}
-   */
+  /** Total price of all products in the cart */
   const total = cart.reduce(
     (sum, product) => sum + product.discountedPrice,
     0
@@ -30,8 +27,8 @@ function CartPage() {
       {cart.length > 0 ? (
         <div className={styles.cartContainer}>
           <ul className={styles.cartList}>
-            {cart.map((product, index) => (
-              <li key={index} className={styles.cartItem}>
+            {cart.map((product) => (
+              <li key={product.id} className={styles.cartItem}>
                 <img
                   src={product.image.url}
                   alt={product.image.alt || product.title}

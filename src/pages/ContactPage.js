@@ -45,7 +45,6 @@ function ContactPage() {
       email &&
       message.length >= 3
     ) {
-      console.log("Form Data:", formData);
       alert("Message sent successfully!");
     } else {
       alert("Please fill out all fields correctly.");
@@ -54,7 +53,7 @@ function ContactPage() {
 
   return (
     <Layout>
-      <h1>Contact Us</h1>
+      <h1 className={styles.contactContainerh1}>Contact Us</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type="text"

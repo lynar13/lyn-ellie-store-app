@@ -86,11 +86,13 @@ function HomePage() {
           .filter((p) => p.title.toLowerCase().includes(search.toLowerCase()))
           .map((product) => (
             <div key={product.id} className={styles.productCard}>
-              <img
-                src={product.image.url}
-                alt={product.image.alt || product.title}
-                className={styles.productImage}
-              />
+              <Link to={`/product/${product.id}`}>
+                <img
+                  src={product.image.url}
+                  alt={product.image.alt || product.title}
+                  className={styles.productImage}
+                />
+              </Link>
               <h2>{product.title}</h2>
               <div className={styles.priceContainer}>
                 {product.price === product.discountedPrice ? (
@@ -112,7 +114,10 @@ function HomePage() {
                   </>
                 )}
               </div>
-              <Link to={`/product/${product.id}`} className={styles.button}>
+              <Link
+                to={`/product/${product.id}`}
+                className={styles.viewProductButton}
+              >
                 View Product
               </Link>
             </div>

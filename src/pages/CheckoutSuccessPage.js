@@ -1,34 +1,31 @@
-/**
- * CheckoutSuccessPage component
- * Displays a confirmation message after a successful order and clears the shopping cart.
- *
- * @component
- * @returns {JSX.Element} Rendered confirmation page for successful checkout.
- */
-
+// src/pages/CheckoutSuccessPage.js
 import React, { useEffect } from "react";
 import { useCart } from "../components/CartContext";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import styles from "../App.module.css";
 
 /**
- * CheckoutSuccessPage - shows a success message and clears the cart on mount.
+ * Renders order confirmation with toast and animation
  */
 function CheckoutSuccessPage() {
   const { clearCart } = useCart();
   const navigate = useNavigate();
 
-  /**
-   * Clear cart once when component is mounted.
-   */
   useEffect(() => {
     clearCart();
-  }, []);
+    toast.success("🎉 Your order was successful!", {
+      position: "top-center",
+      autoClose: 3000,
+    });
+  }, [clearCart]);
 
   return (
     <Layout>
-      <div className={styles.checkoutSuccessContainer}>
+      <ToastContainer />
+      <div className={`${styles.checkoutSuccessContainer} ${styles.fadeIn}`}>
         <h1>Order Successful!</h1>
         <p>Thank you for your purchase.</p>
         <button onClick={() => navigate("/")} className={styles.backLink}>

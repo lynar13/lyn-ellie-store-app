@@ -160,9 +160,16 @@
 
 .productImage {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
+
+.productImage:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
 
 /* Price Styling */
 .originalPrice {
@@ -181,6 +188,19 @@
 .priceContainer {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.viewProductButton {
+  background: linear-gradient(to right, #ff91a2, #ff6f91);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  align-self: center;
 }
 
 /* Product Detail Page */
@@ -372,7 +392,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 20px;
@@ -411,6 +431,22 @@
   gap: 20px;
   justify-content: space-between;
   align-items: center;
+}
+
+/* App.module.css or global css */
+.fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Search Bar */
@@ -470,51 +506,116 @@
   background: #f0f0f0;
 }
 
-/* Form Styles / Contact Page */
-.form {
+/* Contact Page Container */
+.contactContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: auto;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
 }
 
-.input, .textarea {
+/* Title */
+.contactContainer h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+/* Form Box */
+.form {
+  background-color: #fff;
+  padding: 2rem;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Inputs and Textarea */
+.input,
+.textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #ff6f91;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 111, 145, 0.2);
 }
 
 .textarea {
-  height: 100px;
+  resize: vertical;
+  height: 120px;
 }
 
 .button {
-  background-color: #ff91a2;
+  background: linear-gradient(to right, #ff91a2, #ff6f91);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-  width: 100px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  align-self: center;
 }
-.buttonContainer {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    margin-top: 10px; /* Adds spacing */
-  }  
 
-/* Responsive Forms */
-@media (max-width: 480px) {
-  .form {
-    width: 90%;
+.button:hover {
+  transform: translateY(-2px);
+  background-color: #ff6f91;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 600px) {
+  .contactContainer {
+    color: #218838;
+    
   }
 
-  .search {
-    width: 90%;
+  .form {
+    width: 100%;
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .input,
+  .textarea {
+    font-size: 1rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 6px;
+  }
+
+  .textarea {
+    height: 100px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .buttonContainer {
+    margin-top: 1rem;
   }
 }
 
