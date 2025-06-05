@@ -4,14 +4,29 @@ import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
 import styles from "../App.module.css";
 
+/**
+ * CartPage displays the user's shopping cart and allows proceeding to checkout or navigating back to shop.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered CartPage component.
+ */
 function CartPage() {
   const { cart } = useCart();
   const navigate = useNavigate();
-  const total = cart.reduce((sum, product) => sum + product.discountedPrice, 0);
+
+  /**
+   * Calculates the total price of items in the cart.
+   * @type {number}
+   */
+  const total = cart.reduce(
+    (sum, product) => sum + product.discountedPrice,
+    0
+  );
 
   return (
     <Layout>
       <h1 className={styles.cartTitle}>Shopping Cart</h1>
+
       {cart.length > 0 ? (
         <div className={styles.cartContainer}>
           <ul className={styles.cartList}>
@@ -31,14 +46,17 @@ function CartPage() {
               </li>
             ))}
           </ul>
+
           <div className={styles.cartButtons}>
             <h2 className={styles.cartTotal}>Total: {total.toFixed(2)} kr</h2>
+
             <button
               onClick={() => navigate("/checkout-success")}
               className={styles.checkoutButton}
             >
               Checkout
             </button>
+
             <button onClick={() => navigate("/")} className={styles.backLink}>
               Keep shopping
             </button>

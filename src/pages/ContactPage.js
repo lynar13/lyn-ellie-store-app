@@ -1,8 +1,18 @@
 // src/pages/ContactPage.js
+/**
+ * ContactPage component - Provides a contact form with validation and form submission handling.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered ContactPage component.
+ */
+
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../App.module.css";
 
+/**
+ * Contact form page that allows users to send messages.
+ */
 function ContactPage() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -11,15 +21,24 @@ function ContactPage() {
     message: "",
   });
 
+  /**
+   * Handles changes to form inputs and updates the formData state.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} e - The change event.
+   */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  /**
+   * Handles form submission, validates inputs, and shows appropriate alerts.
+   *
+   * @param {React.FormEvent<HTMLFormElement>} e - The form submit event.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     const { fullName, subject, email, message } = formData;
 
-    // Basic Validation
     if (
       fullName.length >= 3 &&
       subject.length >= 3 &&

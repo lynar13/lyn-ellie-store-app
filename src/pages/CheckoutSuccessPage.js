@@ -1,16 +1,30 @@
+/**
+ * CheckoutSuccessPage component
+ * Displays a confirmation message after a successful order and clears the shopping cart.
+ *
+ * @component
+ * @returns {JSX.Element} Rendered confirmation page for successful checkout.
+ */
+
 import React, { useEffect } from "react";
 import { useCart } from "../components/CartContext";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
 import styles from "../App.module.css";
 
+/**
+ * CheckoutSuccessPage - shows a success message and clears the cart on mount.
+ */
 function CheckoutSuccessPage() {
   const { clearCart } = useCart();
   const navigate = useNavigate();
 
+  /**
+   * Clear cart once when component is mounted.
+   */
   useEffect(() => {
     clearCart();
-  }, []); // ✅ Empty dependency array ensures it runs only once
+  }, []);
 
   return (
     <Layout>

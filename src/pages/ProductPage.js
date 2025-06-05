@@ -1,4 +1,3 @@
-// ProductPage Component
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../components/CartContext";
@@ -6,11 +5,22 @@ import Layout from "../components/Layout";
 import styles from "../App.module.css";
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
+
+/**
+ * ProductPage component - Displays details for a specific product,
+ * including title, image, price (with discounts), reviews, and a button to add to cart.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered ProductPage component
+ */
 function ProductPage() {
-  const { id } = useParams();
+  const { id } = useParams(); // Product ID from URL
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
 
+  /**
+   * Fetch product data based on ID on component mount.
+   */
   useEffect(() => {
     fetch(`${API_URL}/${id}`)
       .then((res) => res.json())
@@ -29,9 +39,11 @@ function ProductPage() {
               className={styles.productImage}
             />
           </div>
+
           <div className={styles.productInfoContainer}>
             <h1>{product.title}</h1>
             <p>{product.description}</p>
+
             <div className={styles.priceContainerProduct}>
               {product.price === product.discountedPrice ? (
                 <p className={styles.originalPriceProduct}>
@@ -52,6 +64,7 @@ function ProductPage() {
                 </>
               )}
             </div>
+
             <button
               className={styles.addToCartButton}
               onClick={() => addToCart(product)}
@@ -64,7 +77,6 @@ function ProductPage() {
               />
             </button>
 
-            {/* Display Reviews */}
             <div className={styles.reviews}>
               <h3>Customer Reviews</h3>
               {product.reviews && product.reviews.length > 0 ? (

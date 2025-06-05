@@ -7,6 +7,12 @@ import CartPage from "./pages/CartPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import ContactPage from "./pages/ContactPage";
 
+/**
+ * Main application component that sets up routing and context providers.
+ *
+ * @component
+ * @returns {JSX.Element} The root application wrapped in Cart context and routing.
+ */
 export default function App() {
   return (
     <CartProvider>
